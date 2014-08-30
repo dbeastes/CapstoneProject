@@ -5,7 +5,9 @@
 --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:useBean id="customer" class="edu.acc.j2ee.capstone.model.Customer" scope="session"/>
-<jsp:useBean id="frameOrders" class="java.util.List" scope="session"/> 
+<jsp:useBean id="frameOrders" class="java.util.List" scope="session"/>
+<jsp:useBean id="customerFrameOrders" class="java.util.List" scope="session"/> 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,7 +32,7 @@
             <div class="col-md-4">
                 
                     <h1>Welcome ${customer.fname}</h1>
-                    <h1>You have ${frameOrders.size()} Frame Orders </h1>
+                    <h1>You have ${customerFrameOrders.size()} Frame Orders </h1>
                     <h1><a href="FrameOrderServlet"> Create New Frame Order </a></h1>
                     <h1><a href="FrameOrderServlet"> Edit Old Frame Orders </a></h1>
                     

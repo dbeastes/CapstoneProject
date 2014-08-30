@@ -52,7 +52,7 @@ public class SignInServlet extends HttpServlet {
         List<Customer> customerList = new ArrayList<>();
         
         List<Frameorders> frameOrders = new ArrayList<>();
-        
+        List<Frameorders> customerFrameOrders = new ArrayList<>();
         
         
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -60,6 +60,7 @@ public class SignInServlet extends HttpServlet {
         customerList = session.createQuery("from Customer").list();
         
         frameOrders = session.createQuery("from Frameorders").list();
+        
         session.close();
         
      
@@ -70,9 +71,10 @@ public class SignInServlet extends HttpServlet {
             HttpSession httpSession = request.getSession();
 		
 	
-            
-            httpSession.setAttribute("customer", login);
+            customerFrameOrders = Finders.findFrameOrders(frameOrders, login.getId() );
+            httpSession.setAttribute("customer", login );
             httpSession.setAttribute("frameOrders", frameOrders);
+            httpSession.setAttribute("customerFrameOrders", customerFrameOrders );
             
             request.getRequestDispatcher( "loggedIn.jsp" ).forward( request, response );  
         }

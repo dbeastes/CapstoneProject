@@ -9,6 +9,7 @@ package edu.acc.j2ee.capstone.controller;
 import Util.HibernateUtil;
 import edu.acc.j2ee.capstone.model.Customer;
 import edu.acc.j2ee.capstone.model.Frameorders;
+import edu.acc.j2ee.capstone.validators.Finders;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -44,13 +45,15 @@ public class NewFrameOrderServlet extends HttpServlet {
         Customer customer = (Customer)httpSession.getAttribute("customer");
         Frameorders newOrder = new Frameorders();
         List<Frameorders> frameOrders = new ArrayList();
+        List<Frameorders> customerFrameOrders = new ArrayList();
+        customerFrameOrders = (List<Frameorders>)httpSession.getAttribute("customerFrameOrders");
         frameOrders = (List<Frameorders>)httpSession.getAttribute("frameOrders");
         
         newOrder.setCustomerid(customer.getId());
         newOrder.setFrameid(frameOrders.size() + 1);
         newOrder.setFrametype((String)request.getParameter("frameType"));
         newOrder.setMat((String)request.getParameter("matType"));
-        newOrder.setOrdername(customer.getFname() + frameOrders.size());
+        newOrder.setOrdername(customer.getFname() + customerFrameOrders.size());
         
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
@@ -59,12 +62,13 @@ public class NewFrameOrderServlet extends HttpServlet {
         session.save(newOrder);
         
         frameOrders = session.createQuery("from Frameorders").list();
+        customerFrameOrders = Finders.findFrameOrders(frameOrders , customer.getId() );
         session.getTransaction().commit();
 
         
         
         
-        
+        httpSession.setAttribute( "customerFrameOrders", customerFrameOrders );
         httpSession.setAttribute("frameOrders", frameOrders);
         request.getRequestDispatcher( "loggedIn.jsp" ).forward( request, response );
     

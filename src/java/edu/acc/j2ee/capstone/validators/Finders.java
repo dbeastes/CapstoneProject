@@ -7,6 +7,8 @@
 package edu.acc.j2ee.capstone.validators;
 
 import edu.acc.j2ee.capstone.model.Customer;
+import edu.acc.j2ee.capstone.model.Frameorders;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +34,18 @@ public class Finders {
        }
        return foundCustomer;
     
+    }
+    
+    public static List<Frameorders> findFrameOrders( List<Frameorders> frameOrders, int id ) {
+        List<Frameorders> customerFrameOrders = new ArrayList<>();
+        
+        for (Frameorders frameOrder : frameOrders) {
+            if ( frameOrder.getCustomerid() == id ) {
+                customerFrameOrders.add(frameOrder);
+                
+            }
+        }
+        return customerFrameOrders;  
     }
     
 }
