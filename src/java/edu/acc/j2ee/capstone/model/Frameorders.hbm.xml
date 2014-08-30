@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 27, 2014 2:59:39 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="edu.acc.j2ee.capstone.model.Frameorders" table="FRAMEORDERS" schema="APP">
+        <id name="frameid" type="int">
+            <column name="FRAMEID" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="ordername" type="string">
+            <column name="ORDERNAME" length="35"  />
+        </property>
+        <property name="mat" type="string">
+            <column name="MAT" length="40"  />
+        </property>
+        <property name="matwidth" type="int">
+            <column name="MATWIDTH" precision="10" scale="0" />
+        </property>
+        <property name="frametype" type="string">
+            <column name="FRAMETYPE" length="40"  />
+        </property>
+        <property name="jobwidth" type="int">
+            <column name="JOBWIDTH" precision="25" scale="0"  />
+        </property>
+        <property name="jobheight" type="int">
+            <column name="JOBHEIGHT" precision="20" scale="0"  />
+        </property>
+        <property name="customerid" type="int">
+            <column name="CUSTOMERID" precision="25" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

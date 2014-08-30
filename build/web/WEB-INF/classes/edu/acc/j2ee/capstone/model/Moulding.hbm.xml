@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 27, 2014 2:59:39 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="edu.acc.j2ee.capstone.model.Moulding" table="MOULDING" schema="APP">
+        <id name="id" type="string">
+            <column name="ID" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="imagelink" type="string">
+            <column name="IMAGELINK" length="20" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="20" not-null="true" />
+        </property>
+        <property name="width" type="byte">
+            <column name="WIDTH" precision="2" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

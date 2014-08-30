@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 27, 2014 2:59:39 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="edu.acc.j2ee.capstone.model.Mat" table="MAT" schema="APP">
+        <id name="matid" type="string">
+            <column name="MATID" length="15" />
+            <generator class="assigned" />
+        </id>
+        <property name="imagelink" type="string">
+            <column name="IMAGELINK" length="25" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="20" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

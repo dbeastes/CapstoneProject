@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 27, 2014 2:59:39 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="edu.acc.j2ee.capstone.model.Customer" table="CUSTOMER" schema="APP">
+        <id name="id" type="int">
+            <column name="ID" precision="5" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="fname" type="string">
+            <column name="FNAME" length="20" not-null="true" />
+        </property>
+        <property name="lname" type="string">
+            <column name="LNAME" length="20" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="30" not-null="true" />
+        </property>
+        <property name="username" type="string">
+            <column name="USERNAME" length="25" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="25" />
+        </property>
+    </class>
+</hibernate-mapping>
