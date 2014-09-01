@@ -8,6 +8,7 @@ package edu.acc.j2ee.capstone.controller;
 
 import Util.HibernateUtil;
 import edu.acc.j2ee.capstone.model.Customer;
+import edu.acc.j2ee.capstone.model.FailBean;
 import edu.acc.j2ee.capstone.model.Frameorders;
 import edu.acc.j2ee.capstone.validators.Finders;
 import java.io.IOException;
@@ -49,6 +50,8 @@ public class NewFrameOrderServlet extends HttpServlet {
         customerFrameOrders = (List<Frameorders>)httpSession.getAttribute("customerFrameOrders");
         frameOrders = (List<Frameorders>)httpSession.getAttribute("frameOrders");
         
+        
+        if ( customerFrameOrders.size() < 5 ){
         newOrder.setCustomerid(customer.getId());
         newOrder.setFrameid(frameOrders.size() + 1);
         newOrder.setFrametype((String)request.getParameter("frameType"));
@@ -61,16 +64,21 @@ public class NewFrameOrderServlet extends HttpServlet {
        
         session.save(newOrder);
         
+
         frameOrders = session.createQuery("from Frameorders").list();
         customerFrameOrders = Finders.findFrameOrders(frameOrders , customer.getId() );
         session.getTransaction().commit();
 
-        
-        
-        
         httpSession.setAttribute( "customerFrameOrders", customerFrameOrders );
         httpSession.setAttribute("frameOrders", frameOrders);
         request.getRequestDispatcher( "loggedIn.jsp" ).forward( request, response );
+       
+        } else {
+            FailBean fail = new FailBean();
+            fail.setNewOrderFail("You already have 5 Saved Frame Orders.  You need to edit an existing Frame order to Create a new design.");
+            request.setAttribute("fail", fail);
+            request.getRequestDispatcher( "loggedIn.jsp" ).forward(request, response);
+        }
     
     
     }

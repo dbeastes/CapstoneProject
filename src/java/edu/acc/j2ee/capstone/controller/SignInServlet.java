@@ -79,11 +79,11 @@ public class SignInServlet extends HttpServlet {
             request.getRequestDispatcher( "loggedIn.jsp" ).forward( request, response );  
         }
         }
-       else {
+       
            fail.setEmailFail("The e-mail or password you entered is Invalid");
            request.setAttribute("failBean", fail);
            request.getRequestDispatcher( "index.jsp" ).forward( request, response );
-       }
+       
       
         
         

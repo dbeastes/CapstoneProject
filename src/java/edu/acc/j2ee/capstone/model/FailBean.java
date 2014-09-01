@@ -16,6 +16,7 @@ public class FailBean {
     private String fNameFail;
     private String lNameFail;
     private String passwordFail;
+    private String newOrderFail;
     private boolean noErrors;
     /**
      * @return the emailFail
@@ -99,6 +100,20 @@ public class FailBean {
      */
     public void setNoErrors(boolean noErrors) {
         this.noErrors = noErrors;
+    }
+
+    /**
+     * @return the newOrderFail
+     */
+    public String getNewOrderFail() {
+        return newOrderFail;
+    }
+
+    /**
+     * @param newOrderFail the newOrderFail to set
+     */
+    public void setNewOrderFail(String newOrderFail) {
+        this.newOrderFail = newOrderFail;
     }
     
 }

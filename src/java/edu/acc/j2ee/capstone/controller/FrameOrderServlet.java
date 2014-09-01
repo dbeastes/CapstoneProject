@@ -50,6 +50,10 @@ public class FrameOrderServlet extends HttpServlet {
             Session session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.beginTransaction();
             
+            String orderName = (String)request.getParameter("orderName");
+            Frameorders order = new Frameorders();
+           
+            
             mouldingList = session.createQuery("from Moulding").list();
             session.getTransaction().commit();
             
@@ -57,9 +61,22 @@ public class FrameOrderServlet extends HttpServlet {
             HttpSession httpSession = request.getSession();
 	
             customer = (Customer)httpSession.getAttribute("customer");
-            frameOrders = (List<Frameorders>)httpSession.getAttribute("frameOrders");
-            httpSession.setAttribute("moulding", mouldingList );
             
+            frameOrders = (List<Frameorders>)httpSession.getAttribute("frameOrders");
+            //order = frameOrders.get(0);
+            
+            if (orderName != null) {
+                
+                for (Frameorders frameOrder : frameOrders) {
+                if (frameOrder.getOrdername().equals(orderName)) {
+                    order = frameOrder;
+
+                    }
+                }
+            }
+            
+            httpSession.setAttribute("moulding", mouldingList );
+            request.setAttribute("frameOrder", order);
             
             request.getRequestDispatcher( "FrameOrderPage.jsp" ).forward( request, response );
         

@@ -139,6 +139,14 @@
                 var num = 4;
                 var imagelink = "${moulding[4].imagelink}";
                 $(document).ready(function() {
+                    if (${frameOrder.frameid} > 0 ){
+                       
+                        $("#chosenMat").children().attr('src', '${frameOrder.mat}');
+                        $("#chosenMoulding").children().attr('src', '${frameOrder.frametype}');
+                        $("#frameType").attr('value' , '${frameOrder.frametype}');
+                        $("#matType").attr('value' , '${frameOrder.mat}');
+                    }
+                    
                    // $("#frameOrderForm").hide();
                     $(".moulding").click(function() {
                         
