@@ -92,16 +92,16 @@
                         <div class="col-sm-3"></div>
                         <div class="col-sm-6">
                            
-                                <div class="center-block" style="width:500px; height:500px">
+                                <div class="center-block" style="width:600px; height:600px">
                                     
-                                    <div class="imageOverlay" style="left:50px; top:50px;" >
+                                    <div class="imageOverlay" style="left:70px; top:70px;" >
                                         <img width="400px" src="images/picture.png" />
                                     </div>
                                     <div id="chosenMat" class="imageOverlay" style="left:20px; top:-380px;">
-                                        <img width="100px" src="images/mat4.png" />
+                                        <img width="200px" src="images/mat4.png" />
                                     </div>
-                                    <div id="chosenMoulding" class="imageOverlay" style="left:10px; top:-490px;">
-                                        <img width="120px" src='images/Frame3.png' />
+                                    <div id="chosenMoulding" class="imageOverlay" style="left:0px; top:-600px;">
+                                        <img width="240px" src='images/Frame3.png' />
                                     </div>
                                 
                             </div>
