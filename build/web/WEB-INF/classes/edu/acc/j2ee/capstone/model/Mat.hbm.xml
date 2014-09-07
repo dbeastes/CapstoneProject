@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 27, 2014 2:59:39 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="edu.acc.j2ee.capstone.model.Mat" table="MAT" schema="APP">
+    <class name="edu.acc.j2ee.capstone.model.Mat" table="MAT">
         <id name="matid" type="string">
             <column name="MATID" length="15" />
             <generator class="assigned" />

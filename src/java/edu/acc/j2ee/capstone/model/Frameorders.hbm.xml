@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 27, 2014 2:59:39 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="edu.acc.j2ee.capstone.model.Frameorders" table="FRAMEORDERS" schema="APP">
+    <class name="edu.acc.j2ee.capstone.model.Frameorders" table="FRAMEORDERS">
         <id name="frameid" type="int">
             <column name="FRAMEID" precision="15" scale="0" />
             <generator class="assigned" />

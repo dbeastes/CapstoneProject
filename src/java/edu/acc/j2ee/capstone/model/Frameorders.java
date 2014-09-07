@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="FRAMEORDERS"
-    ,schema="APP"
+    
 )
 public class Frameorders  implements java.io.Serializable {
 

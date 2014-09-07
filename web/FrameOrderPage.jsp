@@ -5,8 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Collection, java.util.ArrayList"%> 
 <jsp:useBean id="customer" class="edu.acc.j2ee.capstone.model.Customer" scope="session"/>
-<jsp:useBean id="moulding" class="java.util.List" scope="session" />
+<jsp:useBean id="moulding" class="java.util.ArrayList" scope="session" />
 <jsp:useBean id="frameOrder" class="edu.acc.j2ee.capstone.model.Frameorders" scope="session"/>
 
 <!DOCTYPE html>

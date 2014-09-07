@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="MAT"
-    ,schema="APP"
+ 
 )
 public class Mat  implements java.io.Serializable {
 

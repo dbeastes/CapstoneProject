@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="CUSTOMER"
-    ,schema="APP"
+    
 )
 public class Customer  implements java.io.Serializable {
 

@@ -46,8 +46,8 @@ public class SignUpServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         Customer login = new Customer();
-        List<Customer> customerList = new ArrayList<>();
-        List<Frameorders> frameOrders = new ArrayList<>();
+        List<Customer> customerList = new ArrayList<Customer>();
+        List<Frameorders> frameOrders = new ArrayList<Frameorders>();
         
         String email = (String) request.getParameter("email");
         FailBean fail = new FailBean();
@@ -55,6 +55,7 @@ public class SignUpServlet extends HttpServlet {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         customerList = session.createQuery("from Customer").list();
+        frameOrders = session.createQuery("from Frameorders").list();
         
         Customer found = Finders.findCustomer(customerList, email );
         Validators validate = new Validators();
@@ -83,6 +84,7 @@ public class SignUpServlet extends HttpServlet {
         
         } else {
             request.setAttribute("failBean", fail);
+            session.close();
             request.getRequestDispatcher("SignUpPage.jsp").forward(request, response);
         }
         
